@@ -10,22 +10,18 @@ bool grab_mouse = false;
 bool warp_mode = false;
 uint8_t MHZ = 8;
 
-
 void machine_reset() {
   
 }
 
-Byte real_getByte(Addr ea)
-{
+Byte real_getByte(Addr ea) {
   return 0;
 }
 
-void real_setByte(Addr ea, Byte value)
-{
+void real_setByte(Addr ea, Byte value) {
 }
 
-void machine_dump(const char *reason)
-{
+void machine_dump(const char *reason) {
   puts("machine_dump() not implemented yet.");
 }
 
