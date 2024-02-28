@@ -21,12 +21,6 @@
 
 #include "mem816.h"
 
-Addr	mem816::memMask;
-Addr	mem816::ramSize;
-
-Byte   *mem816::pRAM;
-const Byte *mem816::pROM;
-
 //==============================================================================
 
 // Never used.
@@ -36,18 +30,3 @@ mem816::mem816()
 // Never used.
 mem816::~mem816()
 { }
-
-// Sets up the memory areas using a dynamically allocated array
-void mem816::setMemory(Addr memMask, Addr ramSize, const Byte *pROM)
-{
-	setMemory(memMask, ramSize, new Byte[ramSize], pROM);
-}
-
-// Sets up the memory area using pre-allocated array
-void mem816::setMemory(Addr memMask, Addr ramSize, Byte *pRAM, const Byte *pROM)
-{
-	mem816::memMask = memMask;
-	mem816::ramSize = ramSize;
-	mem816::pRAM = pRAM;
-	mem816::pROM = pROM;
-}

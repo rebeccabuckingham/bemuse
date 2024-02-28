@@ -32,17 +32,9 @@ class mem816 :
 	public wdc816
 {
 public:
-	// Define the memory areas and sizes
-	static void setMemory (Addr memMask, Addr ramSize, const Byte *pROM);
-	static void setMemory (Addr memMask, Addr ramSize, Byte *pRAM, const Byte *pROM);
-
 	// Fetch a byte from memory
 	INLINE static Byte getByte(Addr ea)
 	{
-		// if ((ea &= memMask) < ramSize)
-		// 	return (pRAM[ea]);
-
-		// return (pROM[ea - ramSize]);
     return real_getByte(ea);
 	}
 
@@ -61,8 +53,6 @@ public:
 	// Write a byte to memory
 	INLINE static void setByte(Addr ea, Byte data)
 	{
-		// if ((ea &= memMask) < ramSize)
-		// 	pRAM[ea] = data;
     real_setByte(ea, data);
 	}
 
@@ -77,11 +67,5 @@ protected:
 	mem816();
 	~mem816();
 
-private:
-	static Addr			memMask;		// The address mask pattern
-	static Addr			ramSize;		// The amount of RAM
-
-	static Byte		  *pRAM;			// Base of RAM memory array
-	static const Byte *pROM;			// Base of ROM memory array
 };
 #endif
